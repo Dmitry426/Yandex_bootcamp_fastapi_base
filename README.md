@@ -26,9 +26,22 @@ make build
 Команда создаст .env из .env.example и сделает "билд" контейнеров.
 
 ```bash
-docker-compose up -d
+make run_build
 ```
 
+#### Docker runner GPU
+
+Перед запуском docker-compose необходимо :
+
+```bash
+make build_cuda
+```
+
+Команда создаст .env из .env.example и сделает "билд" контейнеров.
+
+```bash
+make run_build_gpu
+```
 ### Разработка
 
 "Линтинг" проекта :
