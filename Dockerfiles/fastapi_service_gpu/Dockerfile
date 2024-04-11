@@ -41,7 +41,7 @@ RUN curl -sSL https://install.python-poetry.org | python -
 
 # copy project requirement files here to ensure they will be cached.
 WORKDIR $PYSETUP_PATH
-COPY poetry.lock pyproject.toml ./
+COPY  pyproject.toml ./
 
 # install runtime deps - uses $POETRY_VIRTUALENVS_IN_PROJECT internally
 RUN poetry install --no-dev --no-root
@@ -58,7 +58,7 @@ COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
 
 
 # quicker install as runtime deps are already installed
-RUN poetry install
+RUN poetry install --no-dev
 # netcat for testing
 RUN apt-get update && \
     apt-get install netcat-traditional
